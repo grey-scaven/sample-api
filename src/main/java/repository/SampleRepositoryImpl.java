@@ -1,17 +1,17 @@
-package Repository;
+package repository;
 
-import Entity.Sample;
+import entity.Sample;
 import com.google.common.collect.Lists;
 import com.querydsl.core.types.ExpressionUtils;
 import com.querydsl.core.types.Predicate;
 import org.springframework.data.jpa.repository.support.QueryDslRepositorySupport;
+import org.springframework.stereotype.Repository;
 
-import javax.persistence.EntityManager;
 import javax.persistence.LockModeType;
-import javax.persistence.PersistenceContext;
 import java.util.List;
 
-public class SampleRepositoryImpl extends QueryDslRepositorySupport implements SampleRepository {
+@Repository
+public class SampleRepositoryImpl extends QueryDslRepositorySupport {
 
 	QSample sample = QSample.sample;
 
@@ -19,13 +19,6 @@ public class SampleRepositoryImpl extends QueryDslRepositorySupport implements S
 		super(SampleRepositoryImpl.class);
 	}
 
-	@Override
-	@PersistenceContext(unitName = "sample-api")
-	public void setEntityManager(EntityManager entityManager) {
-		super.setEntityManager(entityManager);
-	}
-
-	@Override
 	public Sample findByCodeForUpdate(Long code) {
 		List<Predicate> predicates = Lists.newArrayList();
 		predicates.add(sample.code.eq(code));

@@ -1,6 +1,6 @@
 package service.converter;
 
-import Entity.SampleItem;
+import entity.SampleItem;
 import org.springframework.stereotype.Component;
 import service.dto.SampleItemDto;
 

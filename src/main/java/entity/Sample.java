@@ -1,4 +1,4 @@
-package Entity;
+package entity;
 
 
 import lombok.Getter;
@@ -16,7 +16,7 @@ import java.util.List;
 public class Sample extends AbstractEntity {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Version

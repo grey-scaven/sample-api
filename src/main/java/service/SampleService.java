@@ -1,7 +1,7 @@
 package service;
 
-import Entity.Sample;
-import Repository.SampleRepository;
+import entity.Sample;
+import repository.SampleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import service.converter.SampleConverter;

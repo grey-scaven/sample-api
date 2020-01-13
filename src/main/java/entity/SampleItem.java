@@ -1,4 +1,4 @@
-package Entity;
+package entity;
 
 
 import lombok.Getter;
@@ -15,7 +15,7 @@ import javax.persistence.*;
 public class SampleItem extends AbstractEntity {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)

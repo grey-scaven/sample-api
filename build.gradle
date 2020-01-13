@@ -52,13 +52,13 @@ querydsl {
     querydslSourcesDir = querydslSrcDir
 }
 
-compileQuerydsl{
-    options.annotationProcessorPath = configurations.querydsl
-}
-
-configurations {
-    querydsl.extendsFrom compileClasspath
-}
+//compileQuerydsl{
+//    options.annotationProcessorPath = configurations.querydsl
+//}
+//
+//configurations {
+//    querydsl.extendsFrom compileClasspath
+//}
 
 sourceSets {
     main {
@@ -66,12 +66,4 @@ sourceSets {
             srcDirs = ['src/main/java', querydslSrcDir]
         }
     }
-}
-
-compileQuerydsl{
-    options.annotationProcessorPath = configurations.querydsl
-}
-
-configurations {
-    querydsl.extendsFrom compileClasspath
 }
