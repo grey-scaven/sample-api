@@ -19,11 +19,16 @@ public class ApiSampleController {
     private SampleService sampleService;
 
     @RequestMapping(value = "/api/v1/test", method = RequestMethod.POST)
-	@ResponseBody
+    @ResponseBody
     public ResponseEntity test(@RequestBody TestRequestIF requestIF) {
-        TestRequestDto requestDto = modelMapper.map(requestIF, TestRequestDto.class);
-        sampleService.test(requestDto);
+        try {
+            TestRequestDto requestDto = modelMapper.map(requestIF, TestRequestDto.class);
+            sampleService.test(requestDto);
 
-        return new ResponseEntity(HttpStatus.OK);
+            return new ResponseEntity(HttpStatus.OK);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        }
     }
 }
