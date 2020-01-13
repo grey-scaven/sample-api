@@ -3,12 +3,12 @@ package service;
 import Entity.Sample;
 import Repository.SampleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import service.converter.SampleConverter;
 import service.dto.SampleItemDto;
 import service.dto.TestRequestDto;
 import service.dto.TestResponseDto;
 
-import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
@@ -42,7 +42,7 @@ public class SampleService {
         }
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public Optional<Sample> getSampleByCodeForUpdate(Long code) {
         Sample sample = sampleRepository.findByCodeForUpdate(code);
 

@@ -1,16 +1,15 @@
 package Repository;
 
 import Entity.Sample;
+import com.google.common.collect.Lists;
 import com.querydsl.core.types.ExpressionUtils;
 import com.querydsl.core.types.Predicate;
-import com.querydsl.jpa.JPQLQuery;
 import org.springframework.data.jpa.repository.support.QueryDslRepositorySupport;
 
 import javax.persistence.EntityManager;
 import javax.persistence.LockModeType;
 import javax.persistence.PersistenceContext;
 import java.util.List;
-import java.util.function.Predicate;
 
 public class SampleRepositoryImpl extends QueryDslRepositorySupport implements SampleRepository {
 
