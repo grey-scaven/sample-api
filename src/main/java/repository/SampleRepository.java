@@ -3,8 +3,8 @@ package repository;
 import entity.Sample;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface SampleRepository extends JpaRepository<Sample, Long> {
+public interface SampleRepository extends JpaRepository<Sample, Long>, SampleRepositoryCustom {
 
-    Sample findByCodeForUpdate(Long code);
+    Sample findByCode(Long code);
 
 }
