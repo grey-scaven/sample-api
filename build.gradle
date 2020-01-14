@@ -18,7 +18,7 @@ apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
 
-sourceCompatibility = 1.7
+sourceCompatibility = 1.8
 
 group 'com.grey'
 version '1.0-SNAPSHOT'
@@ -29,7 +29,7 @@ repositories {
 }
 
 dependencies {
-    compile group: 'com.querydsl', name: 'querydsl-jpa', version: '4.2.1' // querydsl
+    compile group: 'com.querydsl', name: 'querydsl-jpa', version: '4.2.1'
     compile group: 'com.querydsl', name: 'querydsl-apt', version: '4.2.1'
 
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
@@ -52,18 +52,18 @@ querydsl {
     querydslSourcesDir = querydslSrcDir
 }
 
-//compileQuerydsl{
-//    options.annotationProcessorPath = configurations.querydsl
-//}
-//
-//configurations {
-//    querydsl.extendsFrom compileClasspath
-//}
-
 sourceSets {
     main {
         java {
             srcDirs = ['src/main/java', querydslSrcDir]
         }
     }
+}
+
+compileQuerydsl{
+    options.annotationProcessorPath = configurations.querydsl
+}
+
+configurations {
+    querydsl.extendsFrom compileClasspath
 }

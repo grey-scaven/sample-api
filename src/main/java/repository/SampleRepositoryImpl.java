@@ -1,6 +1,7 @@
 package repository;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
+import entity.QSample;
 import entity.Sample;
 import com.google.common.collect.Lists;
 import com.querydsl.core.types.ExpressionUtils;
