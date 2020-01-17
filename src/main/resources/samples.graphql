@@ -1,0 +1,14 @@
+schema {
+    query: Query
+}
+
+type Query {
+    allSamples: [Sample]
+    sample(id: ID): Sample
+}
+
+type Sample {
+    id: ID
+    code: Int
+    userId: String
+}
