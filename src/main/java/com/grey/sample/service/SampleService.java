@@ -2,7 +2,9 @@ package com.grey.sample.service;
 
 import com.grey.sample.entity.Sample;
 import com.grey.sample.repository.SampleRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.grey.sample.service.converter.SampleConverter;
 import com.grey.sample.service.dto.SampleItemDto;
@@ -14,18 +16,17 @@ import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 
+@Service
+@RequiredArgsConstructor
 public class SampleService {
 
     private static final long ERROR_CODE = -1;
 
-    @Autowired
-    private SampleRepository sampleRepository;
+    private final SampleRepository sampleRepository;
 
-    @Autowired
-    private SampleApiService sampleApiService;
+    private final SampleApiService sampleApiService;
 
-    @Autowired
-    private SampleConverter sampleConverter;
+    private final SampleConverter sampleConverter;
 
     @Transactional
     public void test(TestRequestDto requestDto) {
